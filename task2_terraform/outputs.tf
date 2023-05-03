@@ -3,6 +3,12 @@ output "container_image" {
   description = "The name of the Docker image"
 }
 
+output "container_count" {
+  value       = module.docker_container.container_count
+  description = "The number of running containers"
+}
+
+
 output "container_name" {
   value       = module.docker_container.container_name
   description = "The name of the Docker container"

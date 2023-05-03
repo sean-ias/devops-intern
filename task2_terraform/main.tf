@@ -1,6 +1,7 @@
 module "docker_container" {
   source = "./modules/docker_container"
 
+  container_count = var.container_count
   container_name  = var.container_name
   container_image = var.container_image
   internal_port   = var.internal_port

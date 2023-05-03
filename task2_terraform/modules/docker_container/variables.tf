@@ -1,3 +1,8 @@
+variable "container_count" {
+  type        = number
+  description = "The number of Docker containers to run"
+}
+
 variable "container_name" {
   type        = string
   description = "The name of the Docker container"
