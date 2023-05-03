@@ -1,29 +1,11 @@
-variable "container_count" {
-  type        = number
-  description = "The number of Docker containers to run"
-}
+variable "containers" {
+  type = list(object({
+    image         = string
+    name          = string
+    internal_port = number
+    external_port = number
+    environment   = string
+  }))
 
-variable "container_name" {
-  type        = string
-  description = "The name of the Docker container"
-}
-
-variable "container_image" {
-  type        = string
-  description = "The Docker image to use for the container"
-}
-
-variable "internal_port" {
-  type        = number
-  description = "The internal port for the Docker container"
-}
-
-variable "external_port" {
-  type        = number
-  description = "The external port for the Docker container"
-}
-
-variable "environment" {
-  type        = string
-  description = "The environment (dev, prod, etc.) for the Docker container"
+  description = "All attributes of a Docker container in one variable (image, name, ports, and env)"
 }

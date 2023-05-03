@@ -1,10 +1,25 @@
-module "docker_container" {
-  source = "./modules/docker_container"
+variable "containers" {
+  type = list(object({
+    image         = string
+    name          = string
+    internal_port = number
+    external_port = number
+    environment   = string
+  }))
+  description = "All attributes of a Docker container in one variable (image, name, ports, and env)"
+}
 
-  container_count = var.container_count
-  container_name  = var.container_name
-  container_image = var.container_image
-  internal_port   = var.internal_port
-  external_port   = var.external_port
-  environment     = var.environment
+module "docker_container" {
+  source     = "./modules/docker_container"
+  containers = var.containers
+}
+
+output "number_of_containers" {
+  value       = module.docker_container.container_count
+  description = "Number of running containers"
+}
+
+output "containers" {
+  value       = module.docker_container.container_outputs
+  description = "Output for all attributes of every Docker container"
 }

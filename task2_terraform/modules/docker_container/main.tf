@@ -8,18 +8,19 @@ terraform {
 }
 
 resource "docker_container" "container" {
-  image = var.container_image
-  count = var.container_count
-  name  = "${var.container_name}${count.index}"
+  count = length(var.containers)
+
+  image = var.containers[count.index].image
+  name  = var.containers[count.index].name
 
   ports {
-    internal = var.internal_port
-    external = var.external_port + count.index
+    internal = var.containers[count.index].internal_port
+    external = var.containers[count.index].external_port
   }
 
   env = [
-    "ENVIRONMENT_VAR = ${var.environment}"
+    "ENVIRONMENT_VAR = ${var.containers[count.index].environment}"
   ]
 
-  memory = var.environment == "dev" ? 128 : 256
+  memory = var.containers[count.index].environment == "dev" ? 128 : var.containers[count.index].environment == "stage" ? 256 : var.containers[count.index].environment == "prod" ? 512 : "invalid"
 }
