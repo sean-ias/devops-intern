@@ -1,0 +1,22 @@
+---
+- name: Required sys packages for Debian
+  apt:
+    pkg:
+      - apt-transport-https
+      - ca-certificates
+      - curl
+      - software-properties-common
+      - python3-pip
+      - virtualenv
+      - python3-setuptools
+  when: ansible_os_family == "Debian"
+
+- name: Required sys packages for RHEL
+  yum:
+    name:
+      - yum-utils
+      - device-mapper-persistent-data
+      - lvm2
+    state: latest
+    update_cache: true
+  when: ansible_os_family == "Redhat"

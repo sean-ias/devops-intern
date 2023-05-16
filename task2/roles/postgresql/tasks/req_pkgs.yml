@@ -1,0 +1,21 @@
+---
+- name: Install PostgreSQL packages for Debian
+  apt:
+    name:
+      - postgresql
+      - postgresql-server
+    state: latest
+  when: ansible_os_family == "Debian"
+
+- name: Install PostgreSQL packages for RHEL
+  apt:
+    name:
+      - postgresql
+      - postgresql-server
+    state: latest
+  when: ansible_os_family == "Redhat"
+
+- name: Install Python packages for PostgreSQL
+  pip: 
+    name: psycopg2-binary
+    state: latest

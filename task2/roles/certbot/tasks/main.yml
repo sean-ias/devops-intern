@@ -1,0 +1,9 @@
+---
+- name: Install Certbot packages
+  import_tasks: install_certbot.yml
+
+- name: Obtain SSL certificate using Certbot
+  import_tasks: ssl_cert.yml
+
+- name: Reload NGINX configuration
+  import_tasks: nginx_reload.yml

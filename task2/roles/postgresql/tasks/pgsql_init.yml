@@ -1,0 +1,9 @@
+---
+- name: Find out if PostgreSQL is initialized
+  stat:
+    path: /var/lib/pgsql/data/pg_hba.conf
+  register: postgres_data
+
+- name: Initialize PostgreSQL if not
+  shell: "postgresql-setup initdb"
+  when: not postgres_data.stat.exists

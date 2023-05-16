@@ -1,0 +1,9 @@
+---
+- name: Get SSL certificate for our NGINX
+  include_vars:
+    dir: ../../nginx/vars
+  certbot:
+    email: "{{ certbot_email }}"
+    domains: "{{ certbot_domains }}"
+    nginx: true
+    register: certbot_result

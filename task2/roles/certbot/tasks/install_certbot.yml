@@ -1,0 +1,14 @@
+---
+- name: Certbot for Debian
+  apt:
+    name:
+      - certbot
+      - python3-certbot-nginx
+    state: latest
+  when: ansible_os_family == "Debian"
+
+- name: Certbot for RHEL
+  yum:
+    name: certbot
+    state: latest
+  when: ansible_os_family == "Redhat"

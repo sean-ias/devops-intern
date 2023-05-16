@@ -1,0 +1,10 @@
+---
+- name: Create database user
+  vars:
+    - include_vars: "../vars/main.yml"
+  postgresql_user:
+    state: present
+    name: "{{ db_user }}"
+    password: "{{ db_password }}"
+  become: yes
+  become_user: postgres

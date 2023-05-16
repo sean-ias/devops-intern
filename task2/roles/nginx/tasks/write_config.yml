@@ -1,0 +1,10 @@
+---
+- name: Write the NGINX config file
+  include_vars:
+    dir: ../vars
+  template:
+    src: ../templates/nginx.j2
+    dest: /etc/nginx/nginx.conf
+    mode: '0644'
+  notify:
+    - Restart NGINX

@@ -1,0 +1,10 @@
+---
+- name: Install & Configure Docker, NGINX, Certbot, PostgreSQL
+  hosts: servers
+  become: true
+
+  roles:
+    - docker
+    - nginx
+    - certbot
+    - postgresql

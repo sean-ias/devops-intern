@@ -1,0 +1,4 @@
+---
+db_user: "{{ lookup('file', 'encrypted.yml') | from_yaml | default({})['db_user'] }}"
+db_password: "{{ lookup('file', 'encrypted.yml') | from_yaml | default({})['db_password'] }}"
+db_name: "{{ lookup('file', 'encrypted.yml') | from_yaml | default({})['db_name'] }}"

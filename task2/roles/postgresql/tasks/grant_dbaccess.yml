@@ -1,0 +1,12 @@
+---
+- name: Grant db user access to app db
+  vars:
+    - include_vars: "../vars/main.yml"
+  postgresql_privs:
+    type: database
+    database: "{{ db_name }}"
+    roles: "{{ db_user }}"
+    grant_option: no
+    privs: all
+  become: yes
+  become_user: postgres

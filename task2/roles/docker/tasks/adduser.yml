@@ -1,0 +1,14 @@
+---
+- name: Add Ubuntu user to docker group
+  user:
+    name: "{{ vault_ansible_user["ubuntu"] }}"
+    groups: docker
+    append: yes
+  when: ansible_os_family == "Debian"
+
+- name: Add CentOS user to docker group
+  user:
+    name: "{{ vault_ansible_user["centos"] }}"
+    groups: docker
+    append: yes
+  when: ansible_os_family == "Redhat"

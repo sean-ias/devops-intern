@@ -1,0 +1,17 @@
+---
+- name: Install Docker for Debian
+  apt:
+    name: docker-ce
+    state: latest
+    update_cache: true
+  when: ansible_os_family == "Debian"
+
+- name: Install Docker for RHEL
+  yum:
+    name:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+    state: latest
+    update_cache: true
+  when: ansible_os_family == "Redhat"

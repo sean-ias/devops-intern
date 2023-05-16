@@ -1,0 +1,9 @@
+---
+- name: Create app database
+  vars:
+    - include_vars: "../vars/main.yml"
+  postgresql_db:
+    state: present
+    name: "{{ db_name }}"
+  become: yes
+  become_user: postgres

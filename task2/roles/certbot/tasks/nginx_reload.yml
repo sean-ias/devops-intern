@@ -1,0 +1,6 @@
+---
+- name: Reload NGINX configuration
+  service:
+    name: nginx
+    state: reloaded
+  when: certbot_result.changed
