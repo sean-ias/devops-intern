@@ -9,6 +9,10 @@
 
 - name: Certbot for RHEL
   yum:
-    name: certbot
+    name: 
+      - epel-release
+      - certbot
+      - python3-certbot-nginx
+      - mod_ssl
     state: latest
-  when: ansible_os_family == "Redhat"
+  when: ansible_os_family == "RedHat"

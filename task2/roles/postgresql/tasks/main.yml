@@ -2,8 +2,13 @@
 - name: Install packages
   import_tasks: req_pkgs.yml
 
-- name: PostgreSQL Initialization
-  import_tasks: pgsql_init.yml
+- name: PostgreSQL Initialization for Debian
+  import_tasks: pgsql_init_deb.yml
+  when: ansible_os_family=="Debian"
+
+- name: PostgreSQL Initialization for RHEL
+  import_tasks: pgsql_init_rhel.yml
+  when: ansible_os_family=="RedHat"
   
 - name: Ensure PostgreSQL is enabled and running
   import_tasks: service.yml

@@ -1,0 +1,17 @@
+---
+- name: Find out if PostgreSQL is initialized for Debian
+  stat:
+    path: "{{ postgresql_data_dir }}/pg_hba.conf"
+  register: postgres_data
+
+- name: Empty data dir for Debian, if not
+  file:
+    path: "{{ postgresql_data_dir }}"
+    state: absent
+  when: not postgres_data.stat.exists
+
+- name: Initialize PostgreSQL for Debian, if not
+  shell: "{{ postgresql_bin_path }}/initdb -D {{ postgresql_data_dir }}"
+  become: true
+  become_user: postgres
+  when: not postgres_data.stat.exists

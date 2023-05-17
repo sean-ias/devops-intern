@@ -3,19 +3,17 @@
   apt:
     name:
       - postgresql
-      - postgresql-server
+      - postgresql-contrib
+      - libpq-dev
+      - python3-psycopg2
     state: latest
   when: ansible_os_family == "Debian"
 
 - name: Install PostgreSQL packages for RHEL
-  apt:
+  yum:
     name:
       - postgresql
       - postgresql-server
+      - python3-psycopg2
     state: latest
-  when: ansible_os_family == "Redhat"
-
-- name: Install Python packages for PostgreSQL
-  pip: 
-    name: psycopg2-binary
-    state: latest
+  when: ansible_os_family == "RedHat"

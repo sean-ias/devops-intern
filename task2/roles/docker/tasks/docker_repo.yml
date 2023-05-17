@@ -2,7 +2,7 @@
 - name: Docker repo for Debian
   apt_repository:
     repo: deb https://download.docker.com/linux/ubuntu focal stable
-    state: latest
+    state: present
   when: ansible_os_family == "Debian"
 
 - name: Docker repo for RHEL
@@ -13,4 +13,4 @@
     enabled: true
     gpgcheck: true
     gpgkey: "https://download.docker.com/linux/centos/gpg"
-  when: ansible_os_family == "Redhat"
+  when: ansible_os_family == "RedHat"

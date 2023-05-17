@@ -1,0 +1,14 @@
+- name: Find out if PostgreSQL is initialized for RHEL
+  stat:
+    path: "/var/lib/pgsql/data/pg_hba.conf"
+  register: postgres_data
+
+- name: Empty data dir for RHEL, if not
+  file:
+    path: "/var/lib/pgsql/data"
+    state: absent
+  when: not postgres_data.stat.exists
+
+- name: Initialize PostgreSQL for RHEL, if not
+  shell: "postgresql-setup initdb"
+  when: not postgres_data.stat.exists

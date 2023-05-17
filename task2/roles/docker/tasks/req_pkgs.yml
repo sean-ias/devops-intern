@@ -19,4 +19,4 @@
       - lvm2
     state: latest
     update_cache: true
-  when: ansible_os_family == "Redhat"
+  when: ansible_os_family == "RedHat"

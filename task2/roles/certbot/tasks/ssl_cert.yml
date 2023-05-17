@@ -1,9 +1,9 @@
 ---
-- name: Get SSL certificate for our NGINX
-  include_vars:
-    dir: ../../nginx/vars
-  certbot:
-    email: "{{ certbot_email }}"
-    domains: "{{ certbot_domains }}"
-    nginx: true
-    register: certbot_result
+- name: Check if certificate already exists
+  stat:
+    path: "/etc/letsencrypt/live/{{ certbot_domains }}/{{ certbot_certname }}.pem"
+  register: letsencrypt_cert
+
+- name: "Generate new certificate if one doesn't exist"
+  shell: sudo certbot certonly --non-interactive --agree-tos --email "{{ certbot_email }}" --nginx --domains "{{ certbot_domains }}" --cert-name "{{ certbot_certname }}"
+  when: not letsencrypt_cert.stat.exists
