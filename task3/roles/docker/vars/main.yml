@@ -1,0 +1,17 @@
+---
+container_count: 4
+default_container_names:
+  - myubuntu
+  - js_runtime
+  - data_store
+  - db
+default_container_images: 
+  - ubuntu
+  - node
+  - redis
+  - mysql
+default_container_commands: 
+  - sleep 1
+  - npm start
+  - redis-server
+  - --default-authentication-plugin=mysql_native_password

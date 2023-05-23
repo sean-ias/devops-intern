@@ -1,0 +1,9 @@
+---
+- name: Install NGINX
+  import_tasks: install_nginx.yml
+
+- name: Write the NGINX config file
+  import_tasks: write_config.yml
+
+- name: Ensure NGINX is enabled and running
+  import_tasks: service.yml

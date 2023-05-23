@@ -1,0 +1,14 @@
+grps:
+  - nginx
+  - certbot
+  - postgresql
+  
+users:
+  - { name: 'leo', groups: ['docker'] }
+  - { name: 'cristiano', groups: ['nginx'] }
+  - { name: 'erling', groups: ['certbot'] }
+  - { name: 'cillian', groups: ['postgresql'] }
+  - { name: 'john', groups: ['postgresql'] }
+
+# they are unencrypted for experimental reasons. To encrypt this file
+# ansible-vault encrypt ./main.yml

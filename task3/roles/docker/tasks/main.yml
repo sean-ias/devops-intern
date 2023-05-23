@@ -1,0 +1,21 @@
+---
+- name: Install required sys packages
+  import_tasks: req_pkgs.yml
+
+- name: Add GPG apt key
+  import_tasks: gpg_key.yml
+
+- name: Add Docker repo
+  import_tasks: docker_repo.yml
+
+- name: Install Docker Engine
+  import_tasks: install_docker.yml
+
+- name: Ensure Docker is enabled and running
+  import_tasks: service.yml
+
+- name: Add a user
+  import_tasks: adduser.yml
+
+- name: Pull and run docker containers
+  import_tasks: run_docker.yml

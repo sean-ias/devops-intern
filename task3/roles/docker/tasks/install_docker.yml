@@ -1,0 +1,15 @@
+---
+- name: Install Docker for Debian
+  apt:
+    name: docker-ce
+    state: latest
+    update_cache: true
+  when: ansible_os_family == "Debian"
+
+- name: Install Docker for RHEL
+  yum: name={{ item }} state=latest update_cache=true
+  loop:
+    - docker-ce
+    - docker-ce-cli
+    - containerd.io
+  when: ansible_os_family == "RedHat"

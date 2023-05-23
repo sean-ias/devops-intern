@@ -1,0 +1,14 @@
+---
+- name: Add Ubuntu user to docker group
+  user:
+    name: sean
+    groups: docker
+    append: yes
+  when: ansible_os_family == "Debian"
+
+- name: Add CentOS user to docker group
+  user:
+    name: seanconnery
+    groups: docker
+    append: yes
+  when: ansible_os_family == "RedHat"
