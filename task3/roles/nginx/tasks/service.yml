@@ -1,6 +1,0 @@
----
-- name: Ensure NGINX is enabled and running
-  service:
-    name: nginx
-    enabled: yes
-    state: started

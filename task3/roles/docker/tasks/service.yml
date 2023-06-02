@@ -1,6 +1,0 @@
----
-- name: Ensure service is up and running
-  service:
-    name: docker
-    state: started
-    enabled: yes

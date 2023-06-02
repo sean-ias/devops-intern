@@ -1,8 +1,0 @@
----
-- name: Create app database
-  postgresql_db:
-    state: present
-    name: "{{ item }}"
-  become: yes
-  become_user: postgres
-  loop: "{{ db_names }}"

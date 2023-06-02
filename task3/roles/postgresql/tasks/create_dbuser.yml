@@ -1,9 +1,0 @@
----
-- name: Create database user
-  postgresql_user:
-    state: present
-    name: "{{ item.0 }}"
-    password: "{{ item.1 }}"
-  become: yes
-  become_user: postgres
-  loop: "{{ db_users | zip(db_passwords) | list }}"
