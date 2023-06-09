@@ -38,9 +38,9 @@ To get started, perform the following steps:
 ## Screenshots
 
 - ![ECR Screenshot](./screenshots/ecr-repo.png)
-- ![ECR Cluster](./screenshots/ecr-cluster.png)
-- ![ECR Cluster Service](./screenshots/ecr-cluster-service.png)
-- ![ECR Cluster Service Tasks](./screenshots/ecr-cluster-service-tasks.png)
+- ![ECR Cluster](./screenshots/ecs-cluster.png)
+- ![ECR Cluster Service](./screenshots/ecs-cluster-service.png)
+- ![ECR Cluster Service Tasks](./screenshots/ecs-cluster-service-tasks.png)
 - ![ECR AWS CLI command to scale to 0](./screenshots/aws-cli-command-0.png)
 - ![ECR AWS CLI command to scale back to 2](./screenshots/aws-cli-command-2.png)
 
