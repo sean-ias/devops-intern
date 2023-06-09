@@ -1,0 +1,1 @@
+aws ecs update-service --cluster my-ecs-cluster --service my-ecs-service --desired-count 0
