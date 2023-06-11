@@ -1,22 +1,3 @@
-# provider vars
-# variable "aws_region" {
-#   type        = string
-#   default     = "us-east-1"
-#   description = "Configuring AWS provider's region"
-# }
-
-# variable "aws_access_key" {
-#   type        = string
-#   sensitive   = true
-#   description = "Configuring AWS access key ID"
-# }
-
-# variable "aws_secret_key" {
-#   type        = string
-#   sensitive = true
-#   description = "Configuring AWS secret key"
-# }
-
 # vpc vars
 variable "vpc_cidr" {
   type        = string

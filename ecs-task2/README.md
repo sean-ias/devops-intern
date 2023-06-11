@@ -37,6 +37,7 @@ To get started, perform the following steps:
 
 ## Screenshots
 
+- ![Curl NGINX](./screenshots/curl-nginx.png)
 - ![ECR Screenshot](./screenshots/ecr-repo.png)
 - ![ECR Cluster](./screenshots/ecr-cluster.png)
 - ![ECR Cluster Service](./screenshots/ecr-cluster-service.png)
